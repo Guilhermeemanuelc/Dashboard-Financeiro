@@ -1,0 +1,577 @@
+@media (max-width: 768px) {
+
+    /* ================================
+       RESET
+    ================================ */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: #050b16;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+
+
+    /* ================================
+       HEADER
+    ================================ */
+
+    header {
+        width: 100%;
+        min-height: 80px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 18px 20px;
+
+        background: #07101f;
+    }
+
+
+    /* ================================
+       PARTE ESQUERDA
+    ================================ */
+
+    .pcomplemento {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+
+    /* MENU */
+
+    .menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #burguer {
+        font-size: 30px;
+        color: #ffffff;
+        cursor: pointer;
+
+        transition: 0.2s ease;
+    }
+
+    #burguer:hover {
+        opacity: 0.7;
+    }
+
+
+    /* ================================
+       SAUDAÇÃO
+    ================================ */
+
+    .header-saudacao {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .header-saudacao h2 {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .header-saudacao p {
+        color: #8d98a9;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+
+    /* ================================
+       PARTE DIREITA
+    ================================ */
+
+    .scomplemento {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+
+    /* ================================
+       NOTIFICAÇÃO
+    ================================ */
+
+    .notificacao {
+        width: 38px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+    }
+
+    .notificacao .material-icons {
+        font-size: 25px;
+        color: #dce3ed;
+
+        transition: 0.2s ease;
+    }
+
+    .notificacao:hover .material-icons {
+        color: #ffffff;
+    }
+
+
+    /* ================================
+       FOTO DE PERFIL
+    ================================ */
+
+    #foto-perfil {
+        width: 42px;
+        height: 42px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: #d7dce5;
+
+        overflow: hidden;
+    }
+
+    #foto-perfil h1 {
+        color: #202936;
+        font-size: 19px;
+        font-weight: 600;
+    }
+
+
+    /* ================================
+       MAIN
+    ================================ */
+
+    main {
+        width: 100%;
+        padding: 18px 20px 30px;
+    }
+
+
+    /* ================================
+       CALENDÁRIO + TRANSAÇÃO
+    ================================ */
+
+    #calendario-transacao {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 10px;
+    }
+
+
+    /* ================================
+       BOTÃO CALENDÁRIO
+    ================================ */
+
+    .calendario {
+        min-height: 48px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 7px;
+
+        padding: 0 12px;
+
+        border-radius: 9px;
+
+        background: #101b2c;
+        border: 1px solid #17263a;
+
+        cursor: pointer;
+
+        transition: 0.2s ease;
+    }
+
+    .calendario:hover {
+        background: #142238;
+    }
+
+    .calendario p {
+        color: #e6ebf2;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .calendario .material-icons {
+        color: #aeb9c9;
+        font-size: 19px;
+    }
+
+    .calendario .material-icons:last-child {
+        font-size: 18px;
+        margin-left: 2px;
+    }
+
+
+    /* ================================
+       BOTÃO NOVA TRANSAÇÃO
+    ================================ */
+
+    .transacao {
+        min-height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 5px;
+
+        padding: 0 13px;
+
+        border-radius: 10px;
+
+        background: #4338e8;
+
+        cursor: pointer;
+
+        transition: 0.2s ease;
+    }
+
+    .transacao:hover {
+        background: #5045f5;
+    }
+
+    .transacao p {
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .transacao .material-icons {
+        color: #ffffff;
+        font-size: 20px;
+    }
+
+    .transacao .material-icons:last-child {
+        font-size: 17px;
+        margin-left: 1px;
+    }
+
+    /* ================================
+   CARDS FINANCEIROS
+================================ */
+
+#principal {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+/* ================================
+   CARD
+================================ */
+
+.card-financeiro {
+    width: 100%;
+    min-height: 135px;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #07101f;
+    border: 1px solid #17263a;
+
+    overflow: hidden;
+}
+
+
+/* ================================
+   TOPO DO CARD
+================================ */
+
+.card-topo {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.card-topo p {
+    color: #8d98a9;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.card-topo .material-icons {
+    font-size: 21px;
+}
+
+
+/* ================================
+   VALOR
+================================ */
+
+.card-financeiro h2 {
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+}
+
+
+/* ================================
+   COMPARAÇÃO
+================================ */
+
+.card-comparacao {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-comparacao p {
+    color: #687588;
+    font-size: 10px;
+}
+
+.porcentagem {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* ================================
+   PORCENTAGEM POSITIVA
+================================ */
+
+.porcentagem.positiva {
+    color: #22c55e;
+}
+
+
+/* ================================
+   CORES DOS ÍCONES
+================================ */
+
+.receitas {
+    border-left: 3px solid #22c55e;
+}
+
+.receitas .card-topo .material-icons {
+    color: #22c55e;
+}
+
+
+.despesas {
+    border-left: 3px solid #ef4444;
+}
+
+.despesas .card-topo .material-icons {
+    color: #ef4444;
+}
+
+
+.lucro-liquido {
+    border-left: 3px solid #4338e8;
+}
+
+.lucro-liquido .card-topo .material-icons {
+    color: #4338e8;
+}
+
+
+.saldo-total {
+    border-left: 3px solid #f59e0b;
+}
+
+.saldo-total .card-topo .material-icons {
+    color: #f59e0b;
+}
+
+
+    /* ==================================================
+       CELULARES PEQUENOS
+       ATÉ 400px
+       
+       Ajustes incorporados dentro do mobile
+    ================================================== */
+
+    @media (max-width: 400px) {
+
+        header {
+            padding: 16px 15px;
+        }
+
+        .pcomplemento {
+            gap: 10px;
+        }
+
+        .header-saudacao h2 {
+            font-size: 16px;
+        }
+
+        .header-saudacao p {
+            font-size: 10px;
+        }
+
+        .scomplemento {
+            gap: 4px;
+        }
+
+        #foto-perfil {
+            width: 38px;
+            height: 38px;
+        }
+
+        #foto-perfil h1 {
+            font-size: 18px;
+        }
+
+        .notificacao .material-icons {
+            font-size: 23px;
+        }
+
+        main {
+            padding: 15px;
+        }
+
+        .calendario {
+            padding: 0 9px;
+        }
+
+        .calendario p {
+            font-size: 12px;
+        }
+
+        .transacao {
+            padding: 0 9px;
+        }
+
+        .transacao p {
+            font-size: 12px;
+        }
+
+        #principal {
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .card-financeiro {
+            min-height: 120px;
+            padding: 13px;
+        }
+
+        .card-topo {
+            margin-bottom: 9px;
+        }
+
+        .card-topo p {
+            font-size: 12px;
+        }
+
+        .card-topo .material-icons {
+            font-size: 19px;
+        }
+
+        .card-financeiro h2 {
+            font-size: 17px;
+        }
+
+        .card-comparacao {
+            gap: 4px;
+        }
+
+        .card-comparacao p {
+            font-size: 9px;
+        }
+
+        .porcentagem {
+            font-size: 10px;
+        }
+    }
+
+        /* ================================
+       CARDS FINANCEIROS
+    ================================ */
+
+    #principal {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+
+        margin-top: 20px;
+    }
+
+
+    /* ================================
+       CARD FINANCEIRO
+    ================================ */
+
+    .card-financeiro {
+        width: 100%;
+        min-height: 130px;
+
+        padding: 18px;
+
+        border-radius: 12px;
+
+        background: #07101f;
+        border: 1px solid #17263a;
+    }
+
+
+    /* ================================
+       CORES DOS CARDS
+    ================================ */
+
+    .receitas {
+        border-left: 3px solid #22c55e;
+    }
+
+    .despesas {
+        border-left: 3px solid #ef4444;
+    }
+
+    .lucro-liquido {
+        border-left: 3px solid #4338e8;
+    }
+
+    .saldo-total {
+        border-left: 3px solid #f59e0b;
+    }
+
+
+}
+
