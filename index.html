@@ -26,7 +26,7 @@
                 <i class="material-icons">notifications_none</i>
             </div>
             <div id="foto-perfil">
-                <h1>F</h1>
+                <!-- foto-perfil -->
             </div>
         </div>
     </header>
@@ -138,6 +138,210 @@
                     </span>
 
                     <p>vs. mês anterior</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================================
+     EVOLUÇÃO FINANCEIRA
+     ========================================================= -->
+
+        <section class="evolucao-financeira">
+
+            <!-- CABEÇALHO -->
+            <div class="titulo-secao">
+
+                <h2>Evolução Financeira</h2>
+
+                <div class="acoes-grafico">
+
+                    <button class="periodo-grafico">
+                        <span>Mensal</span>
+                        <i class="material-icons">expand_more</i>
+                    </button>
+
+                    <button class="mais-grafico">
+                        <i class="material-icons">more_horiz</i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- LEGENDA -->
+            <div class="legenda-grafico">
+
+                <div class="legenda-item receitas">
+                    <span class="legenda-ponto"></span>
+                    <span>Receitas</span>
+                </div>
+
+                <div class="legenda-item despesas">
+                    <span class="legenda-ponto"></span>
+                    <span>Despesas</span>
+                </div>
+
+                <div class="legenda-item lucro">
+                    <span class="legenda-ponto"></span>
+                    <span>Lucro</span>
+                </div>
+
+            </div>
+
+
+            <!-- GRÁFICO -->
+            <div class="grafico-container">
+
+                <!-- VALORES -->
+                <div class="valores-grafico">
+
+                    <span>R$ 30k</span>
+                    <span>R$ 20k</span>
+                    <span>R$ 10k</span>
+                    <span>R$ 0</span>
+
+                </div>
+
+
+                <!-- ÁREA DO GRÁFICO -->
+                <div class="area-grafico">
+
+                    <svg
+                        class="grafico-svg"
+                        viewBox="0 0 600 260"
+                        preserveAspectRatio="none"
+                    >
+
+                        <!-- LINHAS DE REFERÊNCIA -->
+                        <line
+                            class="linha-grade"
+                            x1="0"
+                            y1="20"
+                            x2="600"
+                            y2="20"
+                        />
+
+                        <line
+                            class="linha-grade"
+                            x1="0"
+                            y1="85"
+                            x2="600"
+                            y2="85"
+                        />
+
+                        <line
+                            class="linha-grade"
+                            x1="0"
+                            y1="150"
+                            x2="600"
+                            y2="150"
+                        />
+
+                        <line
+                            class="linha-grade"
+                            x1="0"
+                            y1="215"
+                            x2="600"
+                            y2="215"
+                        />
+
+
+                        <!-- DESTAQUE DO MÊS -->
+                        <line
+                            class="linha-destaque"
+                            x1="480"
+                            y1="10"
+                            x2="480"
+                            y2="225"
+                        />
+
+
+                        <!-- RECEITAS - VERDE -->
+                        <polyline
+                            class="linha-receitas"
+                            points="
+                                20,135
+                                130,105
+                                240,85
+                                350,82
+                                480,52
+                                590,65
+                            "
+                        />
+
+
+                        <!-- DESPESAS - VERMELHO -->
+                        <polyline
+                            class="linha-despesas"
+                            points="
+                                20,205
+                                130,190
+                                240,185
+                                350,188
+                                480,180
+                                590,195
+                            "
+                        />
+
+
+                        <!-- LUCRO - AZUL -->
+                        <polyline
+                            class="linha-lucro"
+                            points="
+                                20,185
+                                130,150
+                                240,125
+                                350,115
+                                480,105
+                                590,120
+                            "
+                        />
+
+
+                        <!-- PONTOS - RECEITAS -->
+                        <circle class="ponto-receitas" cx="20" cy="135" r="5" />
+                        <circle class="ponto-receitas" cx="130" cy="105" r="5" />
+                        <circle class="ponto-receitas" cx="240" cy="85" r="5" />
+                        <circle class="ponto-receitas" cx="350" cy="82" r="5" />
+                        <circle class="ponto-receitas destaque" cx="480" cy="52" r="6" />
+                        <circle class="ponto-receitas" cx="590" cy="65" r="5" />
+
+
+                        <!-- PONTOS - DESPESAS -->
+                        <circle class="ponto-despesas" cx="20" cy="205" r="5" />
+                        <circle class="ponto-despesas" cx="130" cy="190" r="5" />
+                        <circle class="ponto-despesas" cx="240" cy="185" r="5" />
+                        <circle class="ponto-despesas" cx="350" cy="188" r="5" />
+                        <circle class="ponto-despesas destaque" cx="480" cy="180" r="6" />
+                        <circle class="ponto-despesas" cx="590" cy="195" r="5" />
+
+
+                        <!-- PONTOS - LUCRO -->
+                        <circle class="ponto-lucro" cx="20" cy="185" r="5" />
+                        <circle class="ponto-lucro" cx="130" cy="150" r="5" />
+                        <circle class="ponto-lucro" cx="240" cy="125" r="5" />
+                        <circle class="ponto-lucro" cx="350" cy="115" r="5" />
+                        <circle class="ponto-lucro destaque" cx="480" cy="105" r="6" />
+                        <circle class="ponto-lucro" cx="590" cy="120" r="5" />
+
+                    </svg>
+
+
+                    <!-- MESES -->
+                    <div class="meses-grafico">
+
+                        <span>Jan</span>
+                        <span>Fev</span>
+                        <span>Mar</span>
+                        <span>Abr</span>
+                        <span>Mai</span>
+                        <span>Jun</span>
+
+                    </div>
+
                 </div>
 
             </div>

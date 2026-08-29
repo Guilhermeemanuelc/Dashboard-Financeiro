@@ -133,8 +133,8 @@
     ================================ */
 
     #foto-perfil {
-        width: 42px;
-        height: 42px;
+        width: 44px;
+        height: 44px;
 
         display: flex;
         align-items: center;
@@ -142,15 +142,11 @@
 
         border-radius: 50%;
 
-        background: #d7dce5;
+        background: url(../imagens/myimageperfil.jpeg);
+        background-position: center center;
+        background-size: cover;
 
         overflow: hidden;
-    }
-
-    #foto-perfil h1 {
-        color: #202936;
-        font-size: 19px;
-        font-weight: 600;
     }
 
 
@@ -184,7 +180,7 @@
     ================================ */
 
     .calendario {
-        min-height: 48px;
+        min-height: 40px;
 
         display: flex;
         align-items: center;
@@ -229,7 +225,7 @@
     ================================ */
 
     .transacao {
-        min-height: 48px;
+        min-height: 40px;
 
         display: flex;
         align-items: center;
@@ -418,160 +414,654 @@
 }
 
 
-    /* ==================================================
-       CELULARES PEQUENOS
-       ATÉ 400px
-       
-       Ajustes incorporados dentro do mobile
-    ================================================== */
 
-    @media (max-width: 400px) {
 
-        header {
-            padding: 16px 15px;
-        }
+/* =========================================================
+   EVOLUÇÃO FINANCEIRA
+   ========================================================= */
 
-        .pcomplemento {
-            gap: 10px;
-        }
+.evolucao-financeira {
+    width: 100%;
+    margin-top: 25px;
+}
 
-        .header-saudacao h2 {
-            font-size: 16px;
-        }
 
-        .header-saudacao p {
-            font-size: 10px;
-        }
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
 
-        .scomplemento {
-            gap: 4px;
-        }
+.evolucao-financeira .titulo-secao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        #foto-perfil {
-            width: 38px;
-            height: 38px;
-        }
+    width: 100%;
+    margin-bottom: 18px;
+}
 
-        #foto-perfil h1 {
-            font-size: 18px;
-        }
+.evolucao-financeira .titulo-secao h2 {
+    margin: 0;
 
-        .notificacao .material-icons {
-            font-size: 23px;
-        }
+    font-size: 20px;
+    font-weight: 700;
 
-        main {
-            padding: 15px;
-        }
+    color: #ffffff;
+}
 
-        .calendario {
-            padding: 0 9px;
-        }
 
-        .calendario p {
-            font-size: 12px;
-        }
+/* =========================================================
+   AÇÕES DO GRÁFICO
+   ========================================================= */
 
-        .transacao {
-            padding: 0 9px;
-        }
+.acoes-grafico {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-        .transacao p {
-            font-size: 12px;
-        }
 
-        #principal {
-            gap: 10px;
-            margin-top: 16px;
-        }
+/* =========================================================
+   BOTÃO PERÍODO
+   ========================================================= */
 
-        .card-financeiro {
-            min-height: 120px;
-            padding: 13px;
-        }
+.periodo-grafico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 
-        .card-topo {
-            margin-bottom: 9px;
-        }
+    padding: 8px 12px;
 
-        .card-topo p {
-            font-size: 12px;
-        }
+    border: 1px solid #292929;
+    border-radius: 8px;
 
-        .card-topo .material-icons {
-            font-size: 19px;
-        }
+    background: #181818;
 
-        .card-financeiro h2 {
-            font-size: 17px;
-        }
+    color: #d8d8d8;
 
-        .card-comparacao {
-            gap: 4px;
-        }
+    font-family: inherit;
+    font-size: 12px;
 
-        .card-comparacao p {
-            font-size: 9px;
-        }
+    cursor: pointer;
+}
 
-        .porcentagem {
-            font-size: 10px;
-        }
+.periodo-grafico:hover {
+    background: #202020;
+}
+
+.periodo-grafico i {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   BOTÃO MAIS
+   ========================================================= */
+
+.mais-grafico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: 1px solid #292929;
+    border-radius: 8px;
+
+    background: #181818;
+
+    color: #bdbdbd;
+
+    cursor: pointer;
+}
+
+.mais-grafico:hover {
+    background: #202020;
+}
+
+.mais-grafico i {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   LEGENDA
+   ========================================================= */
+
+.legenda-grafico {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 12px;
+    color: #999999;
+}
+
+.legenda-ponto {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   CORES DA LEGENDA
+   ========================================================= */
+
+.legenda-item.receitas .legenda-ponto {
+    background: #00d978;
+}
+
+.legenda-item.despesas .legenda-ponto {
+    background: #ff5c5c;
+}
+
+.legenda-item.lucro .legenda-ponto {
+    background: #4d8dff;
+}
+
+
+/* =========================================================
+   CONTAINER DO GRÁFICO
+   ========================================================= */
+
+.grafico-container {
+    display: flex;
+    align-items: stretch;
+
+    width: 100%;
+    min-height: 280px;
+
+    padding: 20px 20px 12px;
+
+    box-sizing: border-box;
+
+    background: #151515;
+
+    border: 1px solid #252525;
+    border-radius: 16px;
+}
+
+
+/* =========================================================
+   VALORES DO GRÁFICO
+   ========================================================= */
+
+.valores-grafico {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 55px;
+
+    padding: 2px 0 25px;
+
+    box-sizing: border-box;
+}
+
+.valores-grafico span {
+    font-size: 10px;
+    color: #777777;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ÁREA DO GRÁFICO
+   ========================================================= */
+
+.area-grafico {
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+    height: 250px;
+}
+
+
+/* =========================================================
+   SVG
+   ========================================================= */
+
+.grafico-svg {
+    display: block;
+
+    width: 100%;
+    height: 220px;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   LINHAS DE GRADE
+   ========================================================= */
+
+.linha-grade {
+    stroke: #292929;
+    stroke-width: 1;
+}
+
+
+/* =========================================================
+   LINHA DE DESTAQUE
+   ========================================================= */
+
+.linha-destaque {
+    stroke: #343434;
+    stroke-width: 1;
+
+    stroke-dasharray: 4 4;
+}
+
+
+/* =========================================================
+   LINHA — RECEITAS
+   ========================================================= */
+
+.linha-receitas {
+    fill: none;
+
+    stroke: #00d978;
+    stroke-width: 3;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   LINHA — DESPESAS
+   ========================================================= */
+
+.linha-despesas {
+    fill: none;
+
+    stroke: #ff5c5c;
+    stroke-width: 3;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   LINHA — LUCRO
+   ========================================================= */
+
+.linha-lucro {
+    fill: none;
+
+    stroke: #4d8dff;
+    stroke-width: 3;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   PONTOS — RECEITAS
+   ========================================================= */
+
+.ponto-receitas {
+    fill: #00d978;
+
+    stroke: #151515;
+    stroke-width: 2;
+}
+
+
+/* =========================================================
+   PONTOS — DESPESAS
+   ========================================================= */
+
+.ponto-despesas {
+    fill: #ff5c5c;
+
+    stroke: #151515;
+    stroke-width: 2;
+}
+
+
+/* =========================================================
+   PONTOS — LUCRO
+   ========================================================= */
+
+.ponto-lucro {
+    fill: #4d8dff;
+
+    stroke: #151515;
+    stroke-width: 2;
+}
+
+
+/* =========================================================
+   PONTO DESTACADO
+   ========================================================= */
+
+.ponto-receitas.destaque,
+.ponto-despesas.destaque,
+.ponto-lucro.destaque {
+    stroke-width: 3;
+}
+
+
+/* =========================================================
+   MESES
+   ========================================================= */
+
+.meses-grafico {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 7px 0 0;
+}
+
+.meses-grafico span {
+    font-size: 10px;
+    color: #777777;
+
+    text-align: center;
+}
+
+
+
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ATÉ 400px
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+/* =====================================================
+    HEADER
+===================================================== */
+
+    header {
+        padding: 16px 15px;
     }
 
-        /* ================================
+    .pcomplemento {
+        gap: 10px;
+    }
+
+    .header-saudacao h2 {
+        font-size: 16px;
+    }
+
+    .header-saudacao p {
+        font-size: 10px;
+    }
+
+    .scomplemento {
+        gap: 4px;
+    }
+
+    #foto-perfil {
+        width: 38px;
+        height: 38px;
+    }
+
+    #foto-perfil h1 {
+        font-size: 18px;
+    }
+
+    .notificacao .material-icons {
+        font-size: 23px;
+    }
+
+
+    /* =====================================================
+       MAIN
+       ===================================================== */
+
+    main {
+        padding: 15px;
+    }
+
+
+    /* =====================================================
+       CALENDÁRIO
+       ===================================================== */
+
+    .calendario {
+        padding: 0 9px;
+    }
+
+    .calendario p {
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       TRANSAÇÃO
+       ===================================================== */
+
+    .transacao {
+        padding: 0 9px;
+    }
+
+    .transacao p {
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
        CARDS FINANCEIROS
-    ================================ */
+       ===================================================== */
 
     #principal {
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .card-financeiro {
+        min-height: 120px;
+        padding: 13px;
+    }
+
+
+    /* =====================================================
+       TOPO DOS CARDS
+       ===================================================== */
+
+    .card-topo {
+        margin-bottom: 9px;
+    }
+
+    .card-topo p {
+        font-size: 12px;
+    }
+
+    .card-topo .material-icons {
+        font-size: 19px;
+    }
+
+
+    /* =====================================================
+       VALOR DOS CARDS
+       ===================================================== */
+
+    .card-financeiro h2 {
+        font-size: 17px;
+    }
+
+
+    /* =====================================================
+       COMPARAÇÃO DOS CARDS
+       ===================================================== */
+
+    .card-comparacao {
+        gap: 4px;
+    }
+
+    .card-comparacao p {
+        font-size: 9px;
+    }
+
+    .porcentagem {
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       EVOLUÇÃO FINANCEIRA
+       ===================================================== */
+
+    .evolucao-financeira {
         width: 100%;
-
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 12px;
-
         margin-top: 20px;
     }
 
 
-    /* ================================
-       CARD FINANCEIRO
-    ================================ */
+    /* =====================================================
+       CABEÇALHO DA EVOLUÇÃO
+       ===================================================== */
 
-    .card-financeiro {
-        width: 100%;
-        min-height: 130px;
+    .evolucao-financeira .titulo-secao {
+        margin-bottom: 14px;
+    }
 
-        padding: 18px;
-
-        border-radius: 12px;
-
-        background: #07101f;
-        border: 1px solid #17263a;
+    .evolucao-financeira .titulo-secao h2 {
+        font-size: 18px;
     }
 
 
-    /* ================================
-       CORES DOS CARDS
-    ================================ */
+    /* =====================================================
+       AÇÕES DO GRÁFICO
+       ===================================================== */
 
-    .receitas {
-        border-left: 3px solid #22c55e;
+    .acoes-grafico {
+        gap: 5px;
     }
 
-    .despesas {
-        border-left: 3px solid #ef4444;
+    .periodo-grafico {
+        padding: 7px 9px;
+        font-size: 10px;
     }
 
-    .lucro-liquido {
-        border-left: 3px solid #4338e8;
+    .periodo-grafico i {
+        font-size: 16px;
     }
 
-    .saldo-total {
-        border-left: 3px solid #f59e0b;
+    .mais-grafico {
+        width: 30px;
+        height: 30px;
     }
 
+    .mais-grafico i {
+        font-size: 18px;
+    }
+
+
+    /* =====================================================
+       LEGENDA
+       ===================================================== */
+
+    .legenda-grafico {
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .legenda-item {
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    .legenda-ponto {
+        width: 7px;
+        height: 7px;
+    }
+
+
+    /* =====================================================
+       CONTAINER DO GRÁFICO
+       ===================================================== */
+
+    .grafico-container {
+        min-height: 235px;
+        padding: 14px 10px 8px;
+        border-radius: 13px;
+    }
+
+
+    /* =====================================================
+       VALORES DO GRÁFICO
+       ===================================================== */
+
+    .valores-grafico {
+        width: 42px;
+        padding: 2px 0 23px;
+    }
+
+    .valores-grafico span {
+        font-size: 8px;
+    }
+
+
+    /* =====================================================
+       ÁREA DO GRÁFICO
+       ===================================================== */
+
+    .area-grafico {
+        height: 205px;
+    }
+
+
+    /* =====================================================
+       SVG
+       ===================================================== */
+
+    .grafico-svg {
+        height: 180px;
+    }
+
+
+    /* =====================================================
+       LINHAS DO GRÁFICO
+       ===================================================== */
+
+    .linha-receitas,
+    .linha-despesas,
+    .linha-lucro {
+        stroke-width: 2.5;
+    }
+
+
+    /* =====================================================
+       MESES
+       ===================================================== */
+
+    .meses-grafico {
+        padding-top: 6px;
+    }
+
+    .meses-grafico span {
+        font-size: 8px;
+    }
 
 }
 
+
+
+}
