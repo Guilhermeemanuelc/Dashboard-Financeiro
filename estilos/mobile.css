@@ -784,6 +784,312 @@
 
 
 
+/* =========================================================
+   DESPESAS POR CATEGORIA
+   ========================================================= */
+
+.despesas-categoria {
+    width: 100%;
+    margin-top: 18px;
+
+    padding: 20px;
+
+    background: #07101f;
+    border: 1px solid #17263a;
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.despesas-categoria .titulo-secao {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.despesas-categoria .titulo-secao h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+.categoria-conteudo {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   GRÁFICO DONUT
+   ========================================================= */
+
+.grafico-categorias {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    height: 150px;
+}
+
+
+/* =========================================================
+   DONUT
+   ========================================================= */
+
+.donut {
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #6d3bd1 0deg 126deg,
+            #151515 126deg 129deg,
+
+            #1687e8 129deg 201deg,
+            #151515 201deg 204deg,
+
+            #16b86a 204deg 258deg,
+            #151515 258deg 261deg,
+
+            #f5b51b 261deg 297deg,
+            #151515 297deg 300deg,
+
+            #f0443e 300deg 336deg,
+            #151515 336deg 339deg,
+
+            #687588 339deg 360deg
+        );
+
+    position: relative;
+}
+
+
+/* =========================================================
+   CENTRO DO DONUT
+   ========================================================= */
+
+.donut::before {
+    content: "";
+
+    position: absolute;
+
+    width: 91px;
+    height: 91px;
+
+    border-radius: 50%;
+
+    background: #07101f;
+}
+
+
+.donut-centro {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.donut-centro span {
+    color: #8d98a9;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    margin-bottom: 4px;
+}
+
+
+.donut-centro strong {
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+.donut-centro small {
+    color: #8d98a9;
+
+    font-size: 10px;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   LISTA DE CATEGORIAS
+   ========================================================= */
+
+.lista-categorias {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+
+/* =========================================================
+   ITEM DA CATEGORIA
+   ========================================================= */
+
+.categoria-item {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) auto auto;
+
+    align-items: center;
+
+    column-gap: 10px;
+}
+
+
+/* =========================================================
+   NOME DA CATEGORIA
+   ========================================================= */
+
+.categoria-nome {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.categoria-nome > span:last-child {
+    color: #dce3ed;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   PONTO DAS CATEGORIAS
+   ========================================================= */
+
+.categoria-ponto {
+    width: 9px;
+    height: 9px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   CORES
+   ========================================================= */
+
+.categoria-ponto.moradia {
+    background: #6d3bd1;
+}
+
+
+.categoria-ponto.alimentacao {
+    background: #1687e8;
+}
+
+
+.categoria-ponto.transporte {
+    background: #16b86a;
+}
+
+
+.categoria-ponto.lazer {
+    background: #f5b51b;
+}
+
+
+.categoria-ponto.saude {
+    background: #f0443e;
+}
+
+
+.categoria-ponto.outros {
+    background: #687588;
+}
+
+
+/* =========================================================
+   PORCENTAGEM
+   ========================================================= */
+
+.categoria-porcentagem {
+    color: #dce3ed;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   VALOR
+   ========================================================= */
+
+.categoria-valor {
+    color: #c8d0dc;
+
+    font-size: 11px;
+    font-weight: 400;
+
+    white-space: nowrap;
+
+    text-align: right;
+}
 
 
 /* =========================================================
@@ -1059,6 +1365,130 @@
     .meses-grafico span {
         font-size: 8px;
     }
+
+
+   /* DESPESAS POR CATEGORIA */
+
+   
+.despesas-categoria {
+    margin-top: 16px;
+
+    padding: 15px;
+
+    border-radius: 13px;
+}
+
+
+/* =====================================================
+   TÍTULO
+   ===================================================== */
+
+.despesas-categoria .titulo-secao {
+    margin-bottom: 16px;
+}
+
+
+.despesas-categoria .titulo-secao h2 {
+    font-size: 18px;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+   ===================================================== */
+
+.categoria-conteudo {
+    gap: 12px;
+}
+
+
+/* =====================================================
+   DONUT
+   ===================================================== */
+
+.grafico-categorias {
+    width: 125px;
+    height: 125px;
+}
+
+
+.donut {
+    width: 125px;
+    height: 125px;
+}
+
+
+.donut::before {
+    width: 76px;
+    height: 76px;
+}
+
+
+/* =====================================================
+   TEXTO DO CENTRO
+   ===================================================== */
+
+.donut-centro span {
+    font-size: 9px;
+
+    margin-bottom: 3px;
+}
+
+
+.donut-centro strong {
+    font-size: 10px;
+}
+
+
+.donut-centro small {
+    font-size: 8px;
+
+    margin-top: 2px;
+}
+
+
+/* =====================================================
+   LISTA
+   ===================================================== */
+
+.lista-categorias {
+    gap: 9px;
+}
+
+
+/* =====================================================
+   ITENS
+   ===================================================== */
+
+.categoria-item {
+    column-gap: 6px;
+}
+
+
+.categoria-nome {
+    gap: 5px;
+}
+
+
+.categoria-ponto {
+    width: 7px;
+    height: 7px;
+}
+
+
+.categoria-nome > span:last-child {
+    font-size: 9px;
+}
+
+
+.categoria-porcentagem {
+    font-size: 9px;
+}
+
+
+.categoria-valor {
+    font-size: 9px;
+}
 
 }
 
