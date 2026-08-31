@@ -1091,6 +1091,419 @@
     text-align: right;
 }
 
+/* =========================================================
+   TRANSAÇÕES RECENTES
+   ========================================================= */
+
+.transacoes-recentes {
+    width: 100%;
+    margin-top: 18px;
+    padding: 20px 18px;
+    background: #111c2b;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.transacoes-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.transacoes-topo h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.ver-todas {
+    color: #6d6cff;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   LISTA DE TRANSAÇÕES
+   ========================================================= */
+
+.lista-transacoes {
+    width: 100%;
+}
+
+
+/* =========================================================
+   ITEM DA TRANSAÇÃO
+   ========================================================= */
+
+.transacao-item {
+    width: 100%;
+    min-height: 74px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    box-sizing: border-box;
+}
+
+.transacao-item:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   LADO ESQUERDO
+   ========================================================= */
+
+.transacao-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 0;
+    flex: 1;
+}
+
+
+/* =========================================================
+   ÍCONE
+   ========================================================= */
+
+.icone-transacao {
+    width: 43px;
+    height: 43px;
+
+    min-width: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 17px;
+}
+
+.icone-transacao i {
+    color: #ffffff;
+}
+
+
+/* RECEITA */
+
+.icone-transacao.receita {
+    background: linear-gradient(
+        135deg,
+        #00a86b,
+        #007a50
+    );
+}
+
+
+/* ALIMENTAÇÃO */
+
+.icone-transacao.alimentacao {
+    background: linear-gradient(
+        135deg,
+        #ff4d4d,
+        #c92121
+    );
+}
+
+
+/* TRANSPORTE */
+
+.icone-transacao.transporte {
+    background: linear-gradient(
+        135deg,
+        #2878ff,
+        #1450b5
+    );
+}
+
+
+/* MORADIA */
+
+.icone-transacao.moradia {
+    background: linear-gradient(
+        135deg,
+        #ff8a1f,
+        #e86400
+    );
+}
+
+
+/* LAZER */
+
+.icone-transacao.lazer {
+    background: linear-gradient(
+        135deg,
+        #ffc42e,
+        #f09a00
+    );
+}
+
+
+/* SAÚDE */
+
+.icone-transacao.saude {
+    background: linear-gradient(
+        135deg,
+        #ff5252,
+        #d63030
+    );
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DA TRANSAÇÃO
+   ========================================================= */
+
+.transacao-info {
+    min-width: 0;
+}
+
+.transacao-info h3 {
+    margin: 0 0 4px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transacao-info span {
+    font-size: 14px;
+    color: #9aa4b2;
+}
+
+
+/* =========================================================
+   LADO DIREITO
+   ========================================================= */
+
+.transacao-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+}
+
+
+/* DATA */
+
+.data-transacao {
+    font-size: 13px;
+    color: #9aa4b2;
+
+    white-space: nowrap;
+}
+
+
+/* VALOR */
+
+.valor-transacao {
+    font-size: 15px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* VALOR POSITIVO */
+
+.valor-transacao.positivo {
+    color: #2ecc71;
+}
+
+
+/* VALOR NEGATIVO */
+
+.valor-transacao.negativo {
+    color: #ff5c5c;
+}
+
+
+
+/* ==================================================
+   NAVEGAÇÃO INFERIOR
+================================================== */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    background: #141416;
+    border-top: 1px solid #3c3a4b;
+
+    z-index: 1000;
+
+    padding: 0 8px;
+}
+
+
+/* ==================================================
+   ITENS DA NAVEGAÇÃO
+================================================== */
+
+.bottom-nav-item {
+    flex: 1;
+
+    height: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    text-decoration: none;
+
+    color: #777777;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+
+/* ==================================================
+   ÍCONES
+================================================== */
+
+.bottom-nav-item i {
+    font-size: 19px;
+    color: #777777;
+}
+
+
+/* ==================================================
+   INÍCIO — ATIVO
+================================================== */
+
+.bottom-nav-item.active {
+    color: #0077ff;
+}
+
+.bottom-nav-item.active i {
+    color: #0077ff;
+}
+
+
+/* ==================================================
+   BOTÃO +
+================================================== */
+
+.bottom-nav-add {
+    position: relative;
+
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    margin: -28px 8px 0;
+
+    border: 4px solid #363636;
+    border-radius: 50%;
+
+    background: #0077ff;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+
+    transition: 0.2s ease;
+}
+
+
+/* ÍCONE DO + */
+
+.bottom-nav-add i {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+
+/* EFEITO AO CLICAR */
+
+.bottom-nav-add:active {
+    transform: scale(0.94);
+}
+
+
+/* ==================================================
+   ESPAÇO PARA A BARRA NÃO COBRIR O CONTEÚDO
+================================================== */
+
+body {
+    padding-bottom: 85px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* =========================================================
    CELULARES PEQUENOS
