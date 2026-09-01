@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Dashboard Financeiro</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos/mobile.css">
+
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <!-- =========================================
+             ÁREA PRINCIPAL DO LOGIN
+        ========================================== -->
+
+        <section class="login-card">
+
+            <!-- LOGO / ÍCONE -->
+            <div class="login-logo">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+
+
+            <!-- TÍTULO -->
+            <div class="login-header">
+
+                <h1>Bem-vindo de volta!</h1>
+
+                <p>
+                    Entre na sua conta para acessar suas finanças.
+                </p>
+
+            </div>
+
+
+            <!-- =========================================
+                 FORMULÁRIO
+            ========================================== -->
+
+            <form id="login-form">
+
+                <!-- E-MAIL -->
+                <div class="campo-login">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <div class="input-login">
+
+                        <i class="material-icons">
+                            email
+                        </i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- SENHA -->
+                <div class="campo-login">
+
+                    <label for="senha">
+                        Senha
+                    </label>
+
+                    <div class="input-login">
+
+                        <i class="material-icons">
+                            lock
+                        </i>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Digite sua senha"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="mostrar-senha"
+                            aria-label="Mostrar senha"
+                        >
+                            <i class="material-icons">
+                                visibility
+                            </i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECUPERAR SENHA -->
+                <div class="login-opcoes">
+
+                    <a href="#" id="recuperar-senha">
+                        Esqueceu sua senha?
+                    </a>
+
+                </div>
+
+
+                <!-- MENSAGEM DE ERRO -->
+                <div
+                    id="mensagem-login"
+                    class="mensagem-login"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- BOTÃO ENTRAR -->
+                <button
+                    type="submit"
+                    id="btn-entrar"
+                    class="btn-entrar"
+                >
+
+                    <span class="texto-btn">
+                        ENTRAR
+                    </span>
+
+                    <span
+                        class="loading-login"
+                        aria-hidden="true"
+                    >
+                        <i class="fa-solid fa-spinner"></i>
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- =========================================
+                 CADASTRO
+            ========================================== -->
+
+            <div class="login-cadastro">
+
+                <p>
+                    Ainda não possui uma conta?
+                </p>
+
+                <a href="cadastro.html">
+                    Criar conta
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+    
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
