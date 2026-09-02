@@ -1,82 +1,269 @@
-/* =========================================================
-   DASHBOARD.JS
-   Dashboard Financeiro
-========================================================= */
+async function carregarDashboard() {
+
+```
+if (!supabaseClient) {
+    console.error("Supabase nao configurado.");
+    return;
+}
+
+const resultadoSessao =
+    await supabaseClient.auth.getSession();
+
+if (resultadoSessao.error) {
+    console.error(
+        "Erro ao verificar usuario:",
+        resultadoSessao.error
+    );
+    return;
+}
+
+const session =
+    resultadoSessao.data.session;
+
+if (!session) {
+    window.location.href = "login.html";
+    return;
+}
+
+const usuario = session.user;
+
+console.log("Usuario conectado:", usuario.id);
 
 
-async function verificarUsuario() {
-
-    if (!supabaseClient) {
-        console.error("Supabase não está configurado.");
-        return;
-    }
-
-
-    const {
-        data: { session },
-        error
-    } = await supabaseClient.auth.getSession();
+const resultado =
+    await supabaseClient
+        .from("transacoes")
+        .select("*")
+        .eq("usuario_id", usuario.id)
+        .order("data", {
+            ascending: false
+        });
 
 
-    if (error) {
-        console.error("Erro ao verificar sessão:", error);
-        return;
-    }
+if (resultado.error) {
 
-
-    if (!session) {
-
-        window.location.href = "login.html";
-
-        return;
-    }
-
-
-    console.log(
-        "Usuário autenticado:",
-        session.user.email
+    console.error(
+        "Erro ao buscar transacoes:",
+        resultado.error
     );
 
-
-    /* =====================================================
-       NOME DO USUÁRIO
-    ===================================================== */
-
-    const nomeUsuario =
-        document.getElementById("nome-usuario");
+    return;
+}
 
 
-    if (nomeUsuario) {
-
-        const nome =
-            session.user.user_metadata?.nome;
+const transacoes =
+    resultado.data || [];
 
 
-        if (nome) {
+console.log(
+    "Transacoes encontradas:",
+    transacoes
+);
 
-            nomeUsuario.textContent = nome;
 
-        } else {
+let receitas = 0;
+let despesas = 0;
 
-            nomeUsuario.textContent =
-                session.user.email;
 
-        }
+transacoes.forEach(function(transacao) {
 
+    const valor =
+        Number(transacao.valor) || 0;
+
+
+    if (transacao.tipo === "receita") {
+        receitas += valor;
     }
+
+
+    if (transacao.tipo === "despesa") {
+        despesas += valor;
+    }
+
+});
+
+
+const lucro =
+    receitas - despesas;
+
+
+const saldo =
+    receitas - despesas;
+
+
+const receitasElemento =
+    document.getElementById("total-receitas");
+
+const despesasElemento =
+    document.getElementById("total-despesas");
+
+const lucroElemento =
+    document.getElementById("total-lucro");
+
+const saldoElemento =
+    document.getElementById("total-saldo");
+
+
+if (receitasElemento) {
+
+    receitasElemento.textContent =
+        formatarMoeda(receitas);
 
 }
 
 
-/* =========================================================
-   INICIAR DASHBOARD
-========================================================= */
+if (despesasElemento) {
+
+    despesasElemento.textContent =
+        formatarMoeda(despesas);
+
+}
+
+
+if (lucroElemento) {
+
+    lucroElemento.textContent =
+        formatarMoeda(lucro);
+
+}
+
+
+if (saldoElemento) {
+
+    saldoElemento.textContent =
+        formatarMoeda(saldo);
+
+}
+
+
+mostrarTransacoes(transacoes);
+```
+
+}
+
+function formatarMoeda(valor) {
+
+```
+return Number(valor || 0).toLocaleString(
+    "pt-BR",
+    {
+        style: "currency",
+        currency: "BRL"
+    }
+);
+```
+
+}
+
+function mostrarTransacoes(transacoes) {
+
+```
+const lista =
+    document.getElementById("lista-transacoes");
+
+
+if (!lista) {
+    return;
+}
+
+
+lista.innerHTML = "";
+
+
+if (transacoes.length === 0) {
+
+    const mensagem =
+        document.createElement("div");
+
+    mensagem.className =
+        "sem-transacoes";
+
+    mensagem.textContent =
+        "Nenhuma transacao encontrada.";
+
+    lista.appendChild(mensagem);
+
+    return;
+}
+
+
+const recentes =
+    transacoes.slice(0, 5);
+
+
+recentes.forEach(function(transacao) {
+
+    const item =
+        document.createElement("div");
+
+    item.className =
+        "transacao-item";
+
+
+    const info =
+        document.createElement("div");
+
+    info.className =
+        "transacao-info";
+
+
+    const descricao =
+        document.createElement("strong");
+
+    descricao.textContent =
+        transacao.descricao ||
+        "Sem descricao";
+
+
+    const categoria =
+        document.createElement("span");
+
+    categoria.textContent =
+        transacao.categoria ||
+        "Sem categoria";
+
+
+    info.appendChild(descricao);
+    info.appendChild(categoria);
+
+
+    const valorElemento =
+        document.createElement("div");
+
+    valorElemento.className =
+        "transacao-valor " +
+        transacao.tipo;
+
+
+    const valor =
+        Number(transacao.valor) || 0;
+
+
+    const sinal =
+        transacao.tipo === "receita"
+            ? "+"
+            : "-";
+
+
+    valorElemento.textContent =
+        sinal + " " +
+        formatarMoeda(valor);
+
+
+    item.appendChild(info);
+    item.appendChild(valorElemento);
+
+
+    lista.appendChild(item);
+
+});
+```
+
+}
 
 document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        verificarUsuario();
-
-    }
+"DOMContentLoaded",
+function() {
+carregarDashboard();
+}
 );

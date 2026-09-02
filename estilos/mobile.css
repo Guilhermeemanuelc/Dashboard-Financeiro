@@ -1905,6 +1905,39 @@ body {
 
 }
 
+#btn-nova-transacao {
+text-decoration: none;
+color: inherit;
+}
+
+#btn-nova-transacao p {
+margin: 0;
+}
+
+#btn-nova-transacao-bottom {
+text-decoration: none;
+color: #ffffff;
+}
+
+#btn-nova-transacao-bottom i {
+color: #ffffff;
+}
+
+@media (max-width: 400px) {
+
+
+#btn-nova-transacao {
+    text-decoration: none;
+}
+
+#btn-nova-transacao-bottom {
+    text-decoration: none;
+}
+
+
+}
+
+
 
 
 }
