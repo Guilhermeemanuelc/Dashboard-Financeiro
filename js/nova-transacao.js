@@ -1,305 +1,255 @@
 let tipoSelecionado = "receita";
 
+
 // RECEITA / DESPESA
 
 document.addEventListener("DOMContentLoaded", function () {
 
-```
-const botoesTipo =
-    document.querySelectorAll(".tipo-btn");
+    const botoesTipo = document.querySelectorAll(".tipo-btn");
 
-botoesTipo.forEach(function (botao) {
+    botoesTipo.forEach(function (botao) {
 
-    botao.addEventListener("click", function () {
+        botao.addEventListener("click", function () {
 
-        botoesTipo.forEach(function (item) {
+            botoesTipo.forEach(function (item) {
+                item.classList.remove("ativo");
+            });
 
-            item.classList.remove("ativo");
+            botao.classList.add("ativo");
+
+            tipoSelecionado = botao.dataset.tipo;
 
         });
 
-        botao.classList.add("ativo");
-
-        tipoSelecionado =
-            botao.dataset.tipo;
-
     });
 
-});
 
+    // DATA ATUAL
 
-// COLOCAR DATA ATUAL
+    const campoData = document.getElementById("data");
 
-const campoData =
-    document.getElementById("data");
+    if (campoData) {
 
-if (campoData) {
+        const hoje = new Date();
 
-    const hoje = new Date();
+        const ano = hoje.getFullYear();
 
-    const ano =
-        hoje.getFullYear();
-
-    const mes =
-        String(
+        const mes = String(
             hoje.getMonth() + 1
         ).padStart(2, "0");
 
-    const dia =
-        String(
+        const dia = String(
             hoje.getDate()
         ).padStart(2, "0");
 
-    campoData.value =
-        ano + "-" + mes + "-" + dia;
+        campoData.value =
+            ano + "-" + mes + "-" + dia;
 
-}
-```
+    }
 
 });
+
 
 // SALVAR TRANSAÇÃO
 
 async function salvarTransacao() {
 
-```
-const botao =
-    document.getElementById("btn-salvar");
+    const botao =
+        document.getElementById("btn-salvar");
 
 
-botao.innerHTML =
-    "Salvando...";
+    if (!botao) {
+        console.error("Botão salvar não encontrado.");
+        return;
+    }
 
-
-botao.disabled = true;
-
-
-if (!supabaseClient) {
-
-    alert(
-        "Supabase não está conectado."
-    );
-
-    botao.disabled = false;
 
     botao.innerHTML =
-        '<i class="fa-solid fa-check"></i> Salvar Transação';
+        '<i class="fa-solid fa-spinner fa-spin"></i> Salvando...';
 
-    return;
-
-}
+    botao.disabled = true;
 
 
-// USUÁRIO
+    if (!supabaseClient) {
 
-const resultadoUsuario =
-    await supabaseClient.auth.getUser();
+        alert("Supabase não está conectado.");
 
+        restaurarBotao(botao);
 
-if (resultadoUsuario.error) {
-
-    alert(
-        "Erro ao verificar usuário:\n\n" +
-        resultadoUsuario.error.message
-    );
-
-    botao.disabled = false;
-
-    botao.innerHTML =
-        '<i class="fa-solid fa-check"></i> Salvar Transação';
-
-    return;
-
-}
+        return;
+    }
 
 
-const usuario =
-    resultadoUsuario.data.user;
+    const resultadoUsuario =
+        await supabaseClient.auth.getUser();
 
 
-if (!usuario) {
+    if (resultadoUsuario.error) {
 
-    alert(
-        "Você precisa estar logado."
-    );
+        alert(
+            "Erro ao verificar usuário:\n\n" +
+            resultadoUsuario.error.message
+        );
 
-    window.location.href =
-        "login.html";
+        restaurarBotao(botao);
 
-    return;
-
-}
-
-
-// CAMPOS
-
-const descricao =
-    document
-        .getElementById("descricao")
-        .value
-        .trim();
+        return;
+    }
 
 
-const valor =
-    Number(
+    const usuario =
+        resultadoUsuario.data.user;
+
+
+    if (!usuario) {
+
+        alert("Você precisa estar logado.");
+
+        window.location.href = "login.html";
+
+        return;
+    }
+
+
+    const descricao =
         document
-            .getElementById("valor")
+            .getElementById("descricao")
             .value
+            .trim();
+
+
+    const valor =
+        Number(
+            document
+                .getElementById("valor")
+                .value
+        );
+
+
+    const categoria =
+        document
+            .getElementById("categoria")
+            .value;
+
+
+    const data =
+        document
+            .getElementById("data")
+            .value;
+
+
+    if (!descricao) {
+
+        alert("Digite uma descrição.");
+
+        restaurarBotao(botao);
+
+        return;
+    }
+
+
+    if (!valor || valor <= 0) {
+
+        alert("Digite um valor válido.");
+
+        restaurarBotao(botao);
+
+        return;
+    }
+
+
+    if (!categoria) {
+
+        alert("Selecione uma categoria.");
+
+        restaurarBotao(botao);
+
+        return;
+    }
+
+
+    if (!data) {
+
+        alert("Selecione uma data.");
+
+        restaurarBotao(botao);
+
+        return;
+    }
+
+
+    const novaTransacao = {
+
+        usuario_id: usuario.id,
+
+        tipo: tipoSelecionado,
+
+        descricao: descricao,
+
+        valor: valor,
+
+        categoria: categoria,
+
+        data: data
+
+    };
+
+
+    console.log(
+        "Enviando transação:",
+        novaTransacao
     );
 
 
-const categoria =
-    document
-        .getElementById("categoria")
-        .value;
+    const resultado =
+        await supabaseClient
+            .from("transacoes")
+            .insert([novaTransacao]);
 
 
-const data =
-    document
-        .getElementById("data")
-        .value;
+    if (resultado.error) {
+
+        console.error(
+            "Erro ao salvar:",
+            resultado.error
+        );
+
+        alert(
+            "ERRO AO SALVAR:\n\n" +
+            resultado.error.message
+        );
+
+        restaurarBotao(botao);
+
+        return;
+    }
 
 
-// VALIDAÇÃO
-
-if (!descricao) {
-
-    alert(
-        "Digite uma descrição."
+    console.log(
+        "Transação salva com sucesso!"
     );
+
+
+    botao.innerHTML =
+        '<i class="fa-solid fa-check"></i> Salvo com sucesso!';
+
+
+    setTimeout(function () {
+
+        window.location.href =
+            "../index.html";
+
+    }, 1000);
+
+}
+
+
+function restaurarBotao(botao) {
 
     botao.disabled = false;
 
     botao.innerHTML =
         '<i class="fa-solid fa-check"></i> Salvar Transação';
 
-    return;
-
 }
 
-
-if (!valor || valor <= 0) {
-
-    alert(
-        "Digite um valor válido."
-    );
-
-    botao.disabled = false;
-
-    botao.innerHTML =
-        '<i class="fa-solid fa-check"></i> Salvar Transação';
-
-    return;
-
-}
-
-
-if (!categoria) {
-
-    alert(
-        "Selecione uma categoria."
-    );
-
-    botao.disabled = false;
-
-    botao.innerHTML =
-        '<i class="fa-solid fa-check"></i> Salvar Transação';
-
-    return;
-
-}
-
-
-if (!data) {
-
-    alert(
-        "Selecione uma data."
-    );
-
-    botao.disabled = false;
-
-    botao.innerHTML =
-        '<i class="fa-solid fa-check"></i> Salvar Transação';
-
-    return;
-
-}
-
-
-// TRANSAÇÃO
-
-const novaTransacao = {
-
-    usuario_id:
-        usuario.id,
-
-    tipo:
-        tipoSelecionado,
-
-    descricao:
-        descricao,
-
-    valor:
-        valor,
-
-    categoria:
-        categoria,
-
-    data:
-        data
-
-};
-
-
-console.log(
-    "Salvando:",
-    novaTransacao
-);
-
-
-// SUPABASE
-
-const resultado =
-    await supabaseClient
-        .from("transacoes")
-        .insert([
-            novaTransacao
-        ]);
-
-
-// ERRO
-
-if (resultado.error) {
-
-    console.error(
-        "Erro Supabase:",
-        resultado.error
-    );
-
-    alert(
-        "ERRO AO SALVAR:\n\n" +
-        resultado.error.message
-    );
-
-    botao.disabled = false;
-
-    botao.innerHTML =
-        '<i class="fa-solid fa-check"></i> Salvar Transação';
-
-    return;
-
-}
-
-
-// SUCESSO
-
-alert(
-    "Transação salva com sucesso!"
-);
-
-
-window.location.href =
-    "index.html";
-```
-
-}

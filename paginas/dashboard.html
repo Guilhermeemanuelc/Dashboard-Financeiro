@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,34 +13,26 @@
 
     <title>Dashboard Financeiro</title>
 
-    <!-- ================================
-         CSS
-    ================================= -->
+    <!-- CSS -->
 
     <link
         rel="stylesheet"
-        href="estilos/mobile.css"
+        href="../estilos/mobile.css"
     >
 
     <link
         rel="stylesheet"
-        href="estilos/desktop.css"
+        href="../estilos/desktop.css"
     >
 
-
-    <!-- ================================
-         MATERIAL ICONS
-    ================================= -->
+    <!-- MATERIAL ICONS -->
 
     <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
     >
 
-
-    <!-- ================================
-         FONT AWESOME
-    ================================= -->
+    <!-- FONT AWESOME -->
 
     <link
         rel="stylesheet"
@@ -48,13 +41,9 @@
 
 </head>
 
-
 <body>
 
-
-    <!-- =================================================
-         HEADER
-    ================================================== -->
+    <!-- HEADER -->
 
     <header>
 
@@ -71,12 +60,10 @@
 
             </div>
 
-
             <div class="header-saudacao">
 
-                <!-- Futuramente será preenchido pelo usuário -->
-                <h2 id="nome-usuario" carregando...>
-                    
+                <h2 id="nome-usuario">
+                    Carregando...
                 </h2>
 
                 <div class="header-comentario">
@@ -91,7 +78,6 @@
 
         </div>
 
-
         <div class="scomplemento">
 
             <div class="notificacao">
@@ -102,7 +88,6 @@
 
             </div>
 
-
             <div id="foto-perfil">
                 <!-- Foto do usuário -->
             </div>
@@ -112,20 +97,13 @@
     </header>
 
 
-
-    <!-- =================================================
-         CONTEÚDO PRINCIPAL
-    ================================================== -->
+    <!-- CONTEÚDO PRINCIPAL -->
 
     <main>
 
-
-        <!-- =================================================
-             CALENDÁRIO + NOVA TRANSAÇÃO
-        ================================================== -->
+        <!-- CALENDÁRIO + NOVA TRANSAÇÃO -->
 
         <div id="calendario-transacao">
-
 
             <div class="calendario">
 
@@ -142,8 +120,6 @@
                 </i>
 
             </div>
-
-
 
             <button
                 class="transacao"
@@ -165,17 +141,12 @@
 
             </button>
 
-
         </div>
 
 
-
-        <!-- =================================================
-             CARDS FINANCEIROS
-        ================================================== -->
+        <!-- CARDS FINANCEIROS -->
 
         <section id="principal">
-
 
             <!-- RECEITAS -->
 
@@ -193,11 +164,9 @@
 
                 </div>
 
-
                 <h2 id="total-receitas">
                     R$ 0,00
                 </h2>
-
 
                 <div class="card-comparacao">
 
@@ -217,7 +186,6 @@
             </div>
 
 
-
             <!-- DESPESAS -->
 
             <div class="card-financeiro despesas">
@@ -234,11 +202,9 @@
 
                 </div>
 
-
                 <h2 id="total-despesas">
                     R$ 0,00
                 </h2>
-
 
                 <div class="card-comparacao">
 
@@ -258,7 +224,6 @@
             </div>
 
 
-
             <!-- LUCRO LÍQUIDO -->
 
             <div class="card-financeiro lucro-liquido">
@@ -275,11 +240,9 @@
 
                 </div>
 
-
                 <h2 id="lucro-liquido">
                     R$ 0,00
                 </h2>
-
 
                 <div class="card-comparacao">
 
@@ -299,7 +262,6 @@
             </div>
 
 
-
             <!-- SALDO TOTAL -->
 
             <div class="card-financeiro saldo-total">
@@ -316,11 +278,9 @@
 
                 </div>
 
-
                 <h2 id="saldo-total">
                     R$ 0,00
                 </h2>
-
 
                 <div class="card-comparacao">
 
@@ -339,17 +299,12 @@
 
             </div>
 
-
         </section>
 
 
-
-        <!-- =================================================
-             EVOLUÇÃO FINANCEIRA
-        ================================================== -->
+        <!-- EVOLUÇÃO FINANCEIRA -->
 
         <section class="evolucao-financeira">
-
 
             <div class="titulo-secao">
 
@@ -357,9 +312,7 @@
                     Evolução Financeira
                 </h2>
 
-
                 <div class="acoes-grafico">
-
 
                     <button
                         class="periodo-grafico"
@@ -376,7 +329,6 @@
 
                     </button>
 
-
                     <button
                         class="mais-grafico"
                         type="button"
@@ -388,11 +340,9 @@
 
                     </button>
 
-
                 </div>
 
             </div>
-
 
 
             <!-- LEGENDA -->
@@ -409,7 +359,6 @@
 
                 </div>
 
-
                 <div class="legenda-item despesas">
 
                     <span class="legenda-ponto"></span>
@@ -419,7 +368,6 @@
                     </span>
 
                 </div>
-
 
                 <div class="legenda-item lucro">
 
@@ -434,36 +382,20 @@
             </div>
 
 
-
             <!-- GRÁFICO -->
 
             <div class="grafico-container">
 
-
                 <div class="valores-grafico">
 
-                    <span>
-                        R$ 30k
-                    </span>
-
-                    <span>
-                        R$ 20k
-                    </span>
-
-                    <span>
-                        R$ 10k
-                    </span>
-
-                    <span>
-                        R$ 0
-                    </span>
+                    <span>R$ 30k</span>
+                    <span>R$ 20k</span>
+                    <span>R$ 10k</span>
+                    <span>R$ 0</span>
 
                 </div>
 
-
-
                 <div class="area-grafico">
-
 
                     <svg
                         class="grafico-svg"
@@ -503,7 +435,6 @@
                             y2="215"
                         />
 
-
                         <line
                             class="linha-destaque"
                             x1="480"
@@ -511,9 +442,6 @@
                             x2="480"
                             y2="225"
                         />
-
-
-                        <!-- As linhas serão preenchidas pelo JavaScript -->
 
                         <polyline
                             id="linha-receitas"
@@ -533,65 +461,35 @@
                             points=""
                         />
 
-
-                        <!-- Pontos serão gerados pelo JavaScript -->
-
                         <g id="pontos-receitas"></g>
 
                         <g id="pontos-despesas"></g>
 
                         <g id="pontos-lucro"></g>
 
-
                     </svg>
-
-
 
                     <div class="meses-grafico">
 
-                        <span>
-                            Jan
-                        </span>
-
-                        <span>
-                            Fev
-                        </span>
-
-                        <span>
-                            Mar
-                        </span>
-
-                        <span>
-                            Abr
-                        </span>
-
-                        <span>
-                            Mai
-                        </span>
-
-                        <span>
-                            Jun
-                        </span>
+                        <span>Jan</span>
+                        <span>Fev</span>
+                        <span>Mar</span>
+                        <span>Abr</span>
+                        <span>Mai</span>
+                        <span>Jun</span>
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
 
         </section>
 
 
-
-        <!-- =================================================
-             DESPESAS POR CATEGORIA
-        ================================================== -->
+        <!-- DESPESAS POR CATEGORIA -->
 
         <section class="despesas-categoria">
-
 
             <div class="titulo-secao">
 
@@ -601,10 +499,7 @@
 
             </div>
 
-
-
             <div class="categoria-conteudo">
-
 
                 <div class="grafico-categorias">
 
@@ -633,34 +528,20 @@
 
                 </div>
 
-
-
                 <div
                     class="lista-categorias"
                     id="lista-categorias"
                 >
-
-                    <!--
-                        As categorias serão criadas
-                        pelo JavaScript.
-                    -->
-
                 </div>
 
-
             </div>
-
 
         </section>
 
 
-
-        <!-- =================================================
-             TRANSAÇÕES RECENTES
-        ================================================== -->
+        <!-- TRANSAÇÕES RECENTES -->
 
         <section class="transacoes-recentes">
-
 
             <div class="transacoes-topo">
 
@@ -678,40 +559,23 @@
 
             </div>
 
-
-
             <div
                 class="lista-transacoes"
                 id="lista-transacoes"
             >
-
-                <!--
-                    As transações reais serão
-                    carregadas pelo JavaScript.
-                -->
-
             </div>
 
-
         </section>
-
-
 
     </main>
 
 
-
-    <!-- =================================================
-         NAVEGAÇÃO INFERIOR — MOBILE
-    ================================================== -->
+    <!-- NAVEGAÇÃO INFERIOR -->
 
     <nav class="bottom-nav">
 
-
-        <!-- INÍCIO -->
-
         <a
-            href="#"
+            href="../index.html"
             class="bottom-nav-item active"
             data-section="inicio"
         >
@@ -723,10 +587,6 @@
             </span>
 
         </a>
-
-
-
-        <!-- TRANSAÇÕES -->
 
         <a
             href="#"
@@ -742,10 +602,6 @@
 
         </a>
 
-
-
-        <!-- NOVA TRANSAÇÃO -->
-
         <button
             class="bottom-nav-add"
             id="btn-nova-transacao-bottom"
@@ -756,10 +612,6 @@
             <i class="fa-solid fa-plus"></i>
 
         </button>
-
-
-
-        <!-- RELATÓRIOS -->
 
         <a
             href="#"
@@ -775,10 +627,6 @@
 
         </a>
 
-
-
-        <!-- MAIS -->
-
         <a
             href="#"
             class="bottom-nav-item"
@@ -793,22 +641,18 @@
 
         </a>
 
-
     </nav>
 
-    <!-- =================================================
-         JAVASCRIPT DO DASHBOARD
-    ================================================== -->
 
+    <!-- JAVASCRIPT -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script src="js/supabase.js"></script>
+    <script src="../js/supabase.js"></script>
 
-<script src="js/dashboard.js"></script>
-
+    <script src="../js/dashboard.js"></script>
 
 </body>
 
 </html>
-
+```
